@@ -6,7 +6,7 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Galvenā</title>
+  <title>Sākums</title>
   <?php include 'css/css.html'; ?>
 
 </head>
@@ -32,11 +32,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 <!--Lapas galvene-->
 <div class="header">
 
+<!--Logo-->
+<div class="logo">
+  <a href="index.php">
+    <img src="img/BrumLogo.png" alt="BrumBrum Logo" />
+  </a>
+</div>
+
 <!--Pogas-->
   <div class="pogas">
       <ul class="tab-group">
           <li class="tab"><a href="#signup">Reģistrēties</a></li>
-          <li class="tab active"><a href="#login">Pierakstīties</a></li>
+          <li class="tab active"><a href="#login, #main">Pierakstīties</a></li>
       </ul>
   </div>
 </div>
@@ -70,9 +77,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
           </form>
         </div>
 
+        <!--Lapas saturs-->
+        <div id="main" class="content">
+          <h1>Braucam Kopā!</h1>
+                    <div class="profile-cover">
+                    <?php
+                      $con = mysqli_connect("localhost","root","","accounts");
+                      $q = mysqli_query($con,"SELECT * FROM users");
+
+
+                        while($row = mysqli_fetch_assoc($q)){
+                          echo '<div class="sludinajuma-info">';
+                            echo '<div class="profile-info">';
+                              if($row['image'] == ""){
+                                echo "<img width='100' height='100' src='img/profile/default.png' alt='Default Profile Pic'>";
+                              } else {
+                                echo "<img width='100' height='100' src='img/profile/".$row['image']."' alt='Profile Pic'>";
+                              }
+                              echo '<div class="name">';
+                              $name = $row['first_name'];
+                              $surname = $row['last_name'];
+                              echo "<p> $name $surname </p>"; 
+                              echo '</div>';
+                            echo '</div>';
+                          echo '</div>';
+                        }
+                      ?>
+                    </div>
+                  </div>
+
           <!--Reģistrācija-->
         <div id="signup">   
-          <h1>Rēgistrēties</h1>
+          <h1>Rēģistrēties</h1>
           
           <form action="index.php" method="post" autocomplete="off">
           
@@ -88,7 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
               <label>
                 Uzvārds<span class="req">*</span>
               </label>
-              <input type="text"required autocomplete="off" name='lastname' />
+              <input type="text" required autocomplete="off" name='lastname' />
             </div>
           </div>
 
@@ -96,14 +132,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             <label>
               E-pasta Adreses<span class="req">*</span>
             </label>
-            <input type="email"required autocomplete="off" name='email' />
+            <input type="email" required autocomplete="off" name='email' />
           </div>
           
           <div class="field-wrap">
             <label>
               Iestatiet Paroli<span class="req">*</span>
             </label>
-            <input type="password"required autocomplete="off" name='password'/>
+            <input type="password" required autocomplete="off" name='password'/>
           </div>
 
           <button type="submit" class="button button-block" name="register" />Reģistrēties</button>
@@ -113,16 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
       </div>
 </div> 
 
-<!--Lapas saturs-->
-<div class="content">
-  <h1>Lorem ipsum dolor!</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu sem odio. In in nisl vulputate, vulputate ante eget, posuere lacus. Nullam aliquam mollis nibh sed interdum. Nunc eget sem faucibus tellus finibus tempor. Nam ornare sagittis risus et aliquam. Mauris tincidunt imperdiet nisl vitae euismod. Suspendisse leo elit, consectetur ac gravida sed, viverra cursus tortor. Maecenas vel ullamcorper libero. Curabitur sollicitudin, urna ac efficitur vehicula, urna urna aliquam risus, ac sollicitudin sapien metus non arcu. Donec at orci urna. Sed tincidunt turpis hendrerit purus scelerisque, sed aliquet neque convallis. Ut tempor nunc tortor, eu eleifend ligula tempus eu.</br>
-  Nullam aliquam mollis nibh sed interdum. Nunc eget sem faucibus tellus finibus tempor. Nam ornare sagittis risus et aliquam. Mauris tincidunt imperdiet nisl vitae euismod. Suspendisse leo elit, consectetur ac gravida sed, viverra cursus tortor. Maecenas vel ullamcorper libero. Curabitur sollicitudin, urna ac efficitur vehicula, urna urna aliquam risus, ac sollicitudin sapien metus non arcu. Donec at orci urna.</br>
-  Nullam aliquam mollis nibh sed interdum. Nunc eget sem faucibus tellus finibus tempor. Nam ornare sagittis risus et aliquam. Mauris tincidunt imperdiet nisl vitae euismod. Suspendisse leo elit, consectetur ac gravida sed, viverra cursus tortor. Maecenas vel ullamcorper libero. Curabitur sollicitudin, urna ac efficitur vehicula, urna urna aliquam risus, ac sollicitudin sapien metus non arcu. Donec at orci urna.
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu sem odio. In in nisl vulputate, vulputate ante eget, posuere lacus. Nullam aliquam mollis nibh sed interdum. Nunc eget sem faucibus tellus finibus tempor. Nam ornare sagittis risus et aliquam. Mauris tincidunt imperdiet nisl vitae euismod. Suspendisse leo elit, consectetur ac gravida sed, viverra cursus tortor. Maecenas vel ullamcorper libero. Curabitur sollicitudin, urna ac efficitur vehicula, urna urna aliquam risus, ac sollicitudin sapien metus non arcu. Donec at orci urna. Sed tincidunt turpis hendrerit purus scelerisque, sed aliquet neque convallis. Ut tempor nunc tortor, eu eleifend ligula tempus eu.</br>
-  Nullam aliquam mollis nibh sed interdum. Nunc eget sem faucibus tellus finibus tempor. Nam ornare sagittis risus et aliquam. Mauris tincidunt imperdiet nisl vitae euismod. Suspendisse leo elit, consectetur ac gravida sed, viverra cursus tortor. Maecenas vel ullamcorper libero. Curabitur sollicitudin, urna ac efficitur vehicula, urna urna aliquam risus, ac sollicitudin sapien metus non arcu. Donec at orci urna.</br>
-  Nullam aliquam mollis nibh sed interdum. Nunc eget sem faucibus tellus finibus tempor. Nam ornare sagittis risus et aliquam. Mauris tincidunt imperdiet nisl vitae euismod. Suspendisse leo elit, consectetur ac gravida sed, viverra cursus tortor. Maecenas vel ullamcorper libero. Curabitur sollicitudin, urna ac efficitur vehicula, urna urna aliquam risus, ac sollicitudin sapien metus non arcu. Donec at orci urna.</p>
-</div>
+
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
     <script src="js/index.js"></script>

@@ -4,9 +4,10 @@ session_start();
 session_unset();
 session_destroy(); 
 
-/* Atgriež lietotāju idex lapā */
+/* Atgriež lietotāju index lapā */
 if(isset($_SERVER['HTTP_REFERER'])) {
- header('Location: '.$_SERVER['HTTP_REFERER']);  
+ header('Location: '.$_SERVER['HTTP_REFERER']);
+  //header('Location: index.php');  
 } else {
  header('Location: index.php');  
 }
