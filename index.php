@@ -56,6 +56,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
             <div class="credentials-wrapper">
               <div class="field-wrap">
+                <div class="icon">
+                  <img src="img/user_ico.png" width='40' height='40' alt="User icon" />
+                </div>
                 <label>
                   E-pasta Adrese<span class="req">*</span>
                 </label>
@@ -63,6 +66,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
               </div>
               
               <div class="field-wrap">
+                <div class="icon">
+                  <img src="img/password_ico.png" width='40' height='40' alt="Password icon" />
+                </div>
                 <label>
                   Parole<span class="req">*</span>
                 </label>
@@ -129,6 +135,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
           </div>
 
           <div class="field-wrap">
+<!--             <div class="icon">
+              <img src="img/user_ico.png" width='40' height='40' alt="User icon" />
+            </div> -->
             <label>
               E-pasta Adreses<span class="req">*</span>
             </label>
@@ -136,6 +145,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
           </div>
           
           <div class="field-wrap">
+<!--             <div class="icon">
+              <img src="img/password_ico.png" width='40' height='40' alt="Password icon" />
+            </div> -->
             <label>
               Iestatiet Paroli<span class="req">*</span>
             </label>

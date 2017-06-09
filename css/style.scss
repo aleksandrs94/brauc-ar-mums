@@ -19,6 +19,15 @@ body {
   font-family: 'Ubuntu', sans-serif;
 }
 
+.form {
+  background: rgba(16, 29, 52, 0.7);
+  padding: 40px;
+  max-width: 600px;
+  margin: 40px auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+}
+
 a {
   text-decoration: none;
   color: $primary-color;
@@ -55,6 +64,9 @@ a:hover {
       opacity: 0;
     }
     #filee {
+      width: 150px;
+      height: 150px;
+      cursor: pointer;
       font-size: 3px;
       border-radius: 50%
     }
@@ -312,6 +324,20 @@ label.active .req {
           margin: 10px;
           width: 30%;
           float: left;
+          .icon {
+            width: 15%;
+            height: 41px;
+            float: left;
+            display: block;
+            position: relative;
+          }
+          label {
+            margin-left: 15%;
+          }
+          input {
+            width: 85%;
+            float: right;
+          }
         }
         .forgot {
             margin-top: -20px;
@@ -351,6 +377,23 @@ label.active .req {
       margin: 40px auto;
       border-radius: 4px;
       box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+/*       .credentials-wrapper {
+        .field-wrap {
+          .icon {
+            width: 15%;
+            height: 41px;
+            float: left;
+            display: block;
+            position: relative;
+          }
+          label {
+            margin-left: 45px;
+          }
+          input {
+            width: 85%;
+          }
+        }
+      } */
     }
   }
 }
@@ -430,7 +473,15 @@ label.active .req {
   color: #ffffff;
 }
 
-.tab-content > div:last-child {
+.tab-content > div:first-child {
+  display: block;
+}
+
+.tab-content > div:nth-child(2) {
+  display: block;
+}
+
+.tab-content > div {
   display: none;
 }
 
@@ -537,6 +588,10 @@ output {
 textarea {
   border: 2px solid #a0b3b0;
   resize: vertical;
+}
+
+#description {
+  height: auto;
 }
 
 .field-wrap {

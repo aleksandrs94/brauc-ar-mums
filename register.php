@@ -45,8 +45,17 @@ else { // Email doesn't already exist in a database, proceed...
 
     // Add user to the database
     if ( $mysqli->query($sql) ) {
-
-        //$mysqli->query($sql_two);
+        $result2 = $mysqli->query("SELECT * FROM users WHERE email='$email'");
+            if ( $result2->num_rows == 0 ){
+                $_SESSION['message'] = "Lietotājs ar šādu e-pastu neeksistē!";
+                header("location: error.php");
+            }
+            else { // Lietotājs eksistē
+                    $user = $result2->fetch_assoc();
+                    //$mysqli->query($sql_two);
+                    $_SESSION['id'] = $user['id'];
+                    }
+                    
         $_SESSION['active'] = 0; //0 until user activates their account with verify.php
         $_SESSION['logged_in'] = true; // So we know the user has logged in
         $_SESSION['message'] =

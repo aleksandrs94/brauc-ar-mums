@@ -12,6 +12,14 @@ body {
   background-size: cover;
   font-family: 'Ubuntu', sans-serif; }
 
+.form {
+  background: rgba(16, 29, 52, 0.7);
+  padding: 40px;
+  max-width: 600px;
+  margin: 40px auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3); }
+
 a {
   text-decoration: none;
   color: #41aff4;
@@ -47,6 +55,9 @@ a:hover {
       z-index: 3;
       opacity: 0; }
     .profile-form .profile-picture #filee {
+      width: 150px;
+      height: 150px;
+      cursor: pointer;
       font-size: 3px;
       border-radius: 50%; }
     .profile-form .profile-picture #submitt {
@@ -254,6 +265,17 @@ a:hover {
         margin: 10px;
         width: 30%;
         float: left; }
+        .login-form .tab-content #login .credentials-wrapper .field-wrap .icon {
+          width: 15%;
+          height: 41px;
+          float: left;
+          display: block;
+          position: relative; }
+        .login-form .tab-content #login .credentials-wrapper .field-wrap label {
+          margin-left: 15%; }
+        .login-form .tab-content #login .credentials-wrapper .field-wrap input {
+          width: 85%;
+          float: right; }
       .login-form .tab-content #login .credentials-wrapper .forgot {
         margin-top: -20px;
         text-align: right;
@@ -286,7 +308,24 @@ a:hover {
     max-width: 600px;
     margin: 40px auto;
     border-radius: 4px;
-    box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3); }
+    box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+    /*       .credentials-wrapper {
+            .field-wrap {
+              .icon {
+                width: 15%;
+                height: 41px;
+                float: left;
+                display: block;
+                position: relative;
+              }
+              label {
+                margin-left: 45px;
+              }
+              input {
+                width: 85%;
+              }
+            }
+          } */ }
 
 .content {
   margin: 180px auto;
@@ -354,7 +393,13 @@ a:hover {
   background: #41aff4;
   color: #ffffff; }
 
-.tab-content > div:last-child {
+.tab-content > div:first-child {
+  display: block; }
+
+.tab-content > div:nth-child(2) {
+  display: block; }
+
+.tab-content > div {
   display: none; }
 
 h1 {
@@ -449,6 +494,9 @@ output {
 textarea {
   border: 2px solid #a0b3b0;
   resize: vertical; }
+
+#description {
+  height: auto; }
 
 .field-wrap {
   position: relative;
