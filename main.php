@@ -1,5 +1,6 @@
 <?php
 /* Attēlojam lietotāja profila informāciju */
+require 'db.php';
 session_start();
 
 // Pārbaudam vai lietotājs ir ielogojies, izmantojam sessijas mainīgos
@@ -9,6 +10,7 @@ if ( $_SESSION['logged_in'] != 1 ) {
 }
 else {
     // Padaram datus vieglāk nolasāmus
+    $id = $_SESSION['id'];
     $first_name = $_SESSION['first_name'];
     $last_name = $_SESSION['last_name'];
     $email = $_SESSION['email'];
@@ -96,9 +98,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
   <!--Meklešanas forma-->
   <div id="meklet">   
-    <form action="meklet.php" method="post" autocomplete="off">
+    <form action="main.php" method="post" autocomplete="off">
 
-      <div class="credentials-wrapper">
+    <div class="credentials-wrapper">
         <div class="search-ico">
           <img src="img/search.png" width='50' height='50' alt="Search icon" />
         </div>
@@ -147,13 +149,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                   }
                 ?>
               </div>
-            </div>
+        </div>
 
           <!--Pievienot pasazieri-->
          <div id="pasazieris">
           <h1>Pievienot Pasažieri</h1>
 
-           <form action="pievienot.php" method="post" autocomplete="off">
+          <form action="main.php" method="post" autocomplete="off">
           
           <div class="top-row">
             <div class="field-wrap">
@@ -191,10 +193,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
               <label>
                 Apraksts
               </label>
-              <input type="textarea" autocomplete="off" name='description'/>
+              <textarea id="description" type="textarea" rows="4" autocomplete="off" name='description'></textarea>
           </div>
 
-          <button type="submit" class="button button-block" name="brauciens" />Pievienot</button>
+          <button type="submit" class="button button-block" name="pasazieris" />Pievienot</button>
           
           </form>
         </div>
@@ -203,7 +205,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         <div id="brauciens">
           <h1>Pievienot Braucienu</h1>
           
-          <form action="pievienot.php" method="post" autocomplete="off">
+          <form action="main.php" method="post" autocomplete="off">
           
           <div class="top-row">
             <div class="field-wrap">
@@ -242,14 +244,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 Vietu skaits<span class="req">*</span>
               </label>
               <output name="output-skaits" id="outputId">1</output>
-              <input id="inputId" type="range" required autocomplete="off" min="1" max="8" value="1" name="input-skaits" oninput="outputId.value = inputId.value"/>
+              <input id="inputId" type="range" required autocomplete="off" min="1" max="8" value="1" name="skaits" oninput="outputId.value = inputId.value"/>
           </div>
 
           <div class="field-wrap">
               <label>
                 Apraksts
               </label>
-              <input type="textarea" autocomplete="off" name='description'/>
+              <textarea id="description" type="textarea" rows="4" autocomplete="off" name='description'></textarea>
           </div>
 
           <button type="submit" class="button button-block" name="brauciens" />Pievienot</button>

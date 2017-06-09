@@ -1,3 +1,4 @@
+//Nodrošina ievades lauku izskata funkcionālo daļu
 $('.field-wrap').find('input, textarea').on('mousedown keyup blur focus', function (e) {
   
   var $this = $(this),
@@ -33,6 +34,7 @@ $('.field-wrap').find('input, textarea').on('mousedown keyup blur focus', functi
 
 });
 
+//Nodrošina pārvietošanos pa tab menu joslu
 $('.tab a').on('click', function (e) {
   
   e.preventDefault();
@@ -47,3 +49,21 @@ $('.tab a').on('click', function (e) {
   $(target).fadeIn(600);
   
 });
+
+//Nodrošina profila bildes nomaiņu uz klikšķa
+$("#filee").on("change", function() {
+    $("#submitt").click();
+    $("#formaa").submit();
+});
+
+//Nodrošina tikai ciparu ievadi
+function validate(evt) {
+  var theEvent = evt || window.event;
+  var key = theEvent.keyCode || theEvent.which;
+  key = String.fromCharCode( key );
+  var regex = /[0-9]|\+/;
+  if( !regex.test(key) ) {
+    theEvent.returnValue = false;
+    if(theEvent.preventDefault) theEvent.preventDefault();
+  }
+}

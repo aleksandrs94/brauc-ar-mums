@@ -9,6 +9,7 @@ if ( $_SESSION['logged_in'] != 1 ) {
 }
 else {
     // Padaram datus vieglāk nolasāmus
+    $id = $_SESSION['id'];
     $first_name = $_SESSION['first_name'];
     $last_name = $_SESSION['last_name'];
     $email = $_SESSION['email'];
@@ -69,7 +70,6 @@ else {
           //$q = mysqli_query($con,"SELECT * FROM profils JOIN users WHERE users.email = '".$_SESSION['email']."'");
           $q = mysqli_query($con,"SELECT * FROM users WHERE email = '".$_SESSION['email']."'");
             while($row = mysqli_fetch_assoc($q)){
-              //echo $row['email'];
               if($row['image'] == ""){
                 echo "<img width='50' height='50' src='img/profile/default.png' alt='Default Profile Pic'>";
                 } else {
@@ -88,8 +88,8 @@ else {
     </div>
   </div>
 </div>
-<!--#####################################################################-->
 
+<!--Lapas saturs-->
   <div class="profile-form">
 
           <h1>Jūsu Profils</h1>
@@ -173,7 +173,7 @@ else {
                 <label>
                   Telefona Numurs<span class="req">*</span>
                 </label>
-                <input type="text" required autocomplete="off" name="pnumber"/>
+                <input type="text" onkeypress='validate(event)' required autocomplete="off" name="pnumber"/>
               </div>
           </form>
           
@@ -184,12 +184,6 @@ else {
     
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="js/index.js"></script>
-<script>
-$("#filee").on("change", function() {
-    $("#submitt").click();
-    $("#formaa").submit();
-});
-</script>
 
 </body>
 </html>
