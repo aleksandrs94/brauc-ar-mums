@@ -103,7 +103,7 @@ a:hover {
   width: 100%;
   height: 53px;
   position: fixed;
-  opacity: 0.8;
+  opacity: 0.9;
   top: 0;
   z-index: 10;
 
@@ -142,7 +142,7 @@ a:hover {
     .tab-group {
       margin: 0;
       li a {
-        width: 100%;
+        width: 50%;
       }
     }
   }
@@ -218,8 +218,9 @@ a:hover {
     #meklet {
       position: fixed;
       top: 53px;
-      background: rgba(16, 29, 52, 0.7);
+      background: rgba(16, 29, 52, 0.9);
       padding: 40px;
+      z-index: 5;
       width: 100%;
       margin: 0 auto 40px auto;
       border-radius: 4px;
@@ -309,9 +310,10 @@ label.active .req {
     #login {
     position: fixed;
     top: 53px;
-    background: rgba(16, 29, 52, 0.7);
+    background: rgba(16, 29, 52, 0.9);
     padding: 40px;
     width: 100%;
+    z-index: 5;
     margin: 0 auto 40px auto;
     border-radius: 4px;
     box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
@@ -398,21 +400,17 @@ label.active .req {
   }
 }
 
-.content {
-  margin: 180px auto;
-  background: rgba(16, 29, 52, 0.7);
-  padding: 40px 20px;
-  max-width: 900px;
-  border-radius: 4px;
-  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
-  .profile-cover {
-    width: 100%;
-
-    .sludinajuma-info {
-      width: 100%;
-      margin-bottom: 30px;
+#sludinajumi {
+      .sludinajuma-info {
+        width: 100%;
+        height: 150px;
+        padding: 15px 0 10px 0;
+        margin-bottom: 30px;
+        margin-top: 20px;
+        box-shadow: 0 -6px 5px 11px rgba(19, 35, 47, 0.7);
       .profile-info {
         width: 20%;
+        float: left;
         img {
           background-repeat: no-repeat;
           background-position: center center;
@@ -436,7 +434,72 @@ label.active .req {
           }
         }
       }
+      .brauciena-info {
+        width: 80%;
+        height: 130px;
+        padding-top: 10px;
+        float: right;
+        position: relative;
+        display: block;
+        .marsruts-info {
+          text-align: left;
+          font-size: 17pt;
+          width: 50%;
+          height: 30px;
+          float: left;
+        }
+        .datums-info {
+          width: 50%;
+          height: 30px;
+          top: 0;
+          float: left;
+          text-align: right;
+        }
+        .cena-info {
+          text-align: left;
+          font-size: 14pt;
+          width: 50%;
+          height: 30px;
+          float: left;
+        }
+        .skaits-info {
+          width: 30%;
+          height: 30px;
+          display: block;
+          float: right;
+          text-align: right;
+          padding-top: 15px;
+          font-size: 18pt;
+        }
+        .description-info {
+          display: block;
+          width: 85%;
+          height: 55px;
+          margin-top: 10px;
+          position: relative;
+          float: left;
+          text-align: left;
+        }
+        .veids-ico {
+          width: 15%;
+          height: 75px;
+          float: right;
+          margin-top: 10px;
+        }
+      }
     }
+}
+
+
+.content {
+  margin: 180px auto;
+  background: rgba(16, 29, 52, 0.7);
+  padding: 40px 20px;
+  max-width: 900px;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+  .profile-cover {
+    width: 100%;
   }
 }
 
@@ -473,17 +536,22 @@ label.active .req {
   color: #ffffff;
 }
 
+.sludinajumu-form {
+  .tab-content > div:nth-child(2) {
+  display: block;
+  }
+  .tab-content > div {
+  display: none;
+  }
+}
+
 .tab-content > div:first-child {
   display: block;
 }
 
-.tab-content > div:nth-child(2) {
-  display: block;
-}
-
-.tab-content > div {
+  .tab-content > div:last-child {
   display: none;
-}
+  }
 
 h1 {
   text-align: center;

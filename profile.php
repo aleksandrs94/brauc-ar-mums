@@ -1,5 +1,6 @@
 <?php
 /* Attēlojam lietotāja profila informāciju */
+require 'db.php';
 session_start();
 
 // Pārbaudam vai lietotājs ir ielogojies, izmantojam sessijas mainīgos
@@ -34,6 +35,20 @@ else {
 ?>
 
 
+
+<?php 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+{
+    if (isset($_POST['profile'])) { //profila informācija
+        require 'profile.php'; 
+    }
+    elseif (isset($_POST['mani-sludinajumi'])) { //lietotaja sludinajumi
+        require 'mani-sludinajumi.php';
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html >
 <head>
@@ -56,7 +71,8 @@ else {
   <!--Pogas-->
   <div class="pogas-profile">
       <ul class="tab-group">
-          <li class="tab active"><a href="profile.php">Profils</a></li>
+          <li class="tab active"><a href="#profile">Profils</a></li>
+          <li class="tab"><a href="#mani-sludinajumi">Mani Sludinājumi</a></li>
       </ul>
   </div>
 
@@ -89,28 +105,27 @@ else {
   </div>
 </div>
 
-<!--Lapas saturs-->
-  <div class="profile-form">
+<div class="profila-form">
+  <div class="tab-content">
 
+<!--Profila info-->
+  <div id="profile" class="profile-form">
           <h1>Jūsu Profils</h1>
           <p>
           Lūdzu ievadiet nepieciešamo informāciju!
           </p>
+
           <p>
           <?php 
-     
           // Parādam ziņojumu par reģistrācijas apstiprināšanu tikai vienreiz
           if ( isset($_SESSION['message']) )
           {
               echo $_SESSION['message'];
-              
               // Neatkartojam paziņojumu, lai netraucētu lietotājam
               unset( $_SESSION['message'] );
           }
-          
           ?>
           </p>
-          
           <?php
           // Atgādinam, ka reģistrācija ir jāapstiprina, līdz lietotājs neapstiprina
           if ( !$active ){
@@ -165,7 +180,6 @@ else {
                   </label>
                   <input type="text" required autocomplete="off" name="lastname"/>
                 </div>
-            </form> 
           </div>
 
           <form action="" method="post" autocomplete="off">
@@ -181,6 +195,18 @@ else {
           <a href="main.php"><button class="button button-block" name="atpakal"/>Atpakaļ</button></a>
 
     </div>
+
+    <div id="mani-sludinajumi" class="content">
+        <h1>Jūsu Sludinājumi!</h1>
+        <form action="profile.php" method="post" autocomplete="off">
+          <div id="mani-sludinajumi-cover" class="mani-sludinajumi-cover">
+            
+          </div>
+        </form>
+
+    </div>
+  </div>
+</div>
     
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="js/index.js"></script>

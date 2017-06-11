@@ -5,6 +5,7 @@ $_SESSION['beigas'] = $_POST['beigas'];
 $_SESSION['datums'] = $_POST['datums'];
 $_SESSION['laiks'] = $_POST['laiks'];
 $_SESSION['skaits'] = $_POST['skaits'];
+$_SESSION['cena'] = $_POST['cena'];
 $_SESSION['description'] = $_POST['description'];
 
 // Escape all $_POST variables to protect against SQL injections
@@ -13,6 +14,7 @@ $beigas = $mysqli->escape_string($_POST['beigas']);
 $datums = $mysqli->escape_string($_POST['datums']);
 $laiks = $mysqli->escape_string($_POST['laiks']);
 $skaits = $mysqli->escape_string($_POST['skaits']);
+$cena = $mysqli->escape_string($_POST['cena']);
 $description = $mysqli->escape_string($_POST['description']);
 $id = $_SESSION['id'];
 
@@ -28,8 +30,8 @@ if ( $result->num_rows < 0 ) {
     
 }
 else {
-    $sql = "INSERT INTO brauciens (users_id, sakums, beigas, datums, laiks, skaits, description) " 
-        . "VALUES ('$id','$sakums','$beigas','$datums','$laiks','$skaits','$description')";
+    $sql = "INSERT INTO brauciens (users_id, sakums, beigas, datums, laiks, skaits, cena, description) " 
+        . "VALUES ('$id','$sakums','$beigas','$datums','$laiks','$skaits', '$cena', '$description')";
 
         $mysqli->query($sql);
     }

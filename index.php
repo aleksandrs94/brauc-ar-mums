@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     if (isset($_POST['login'])) { //lietotāja pierakstīšanās
 
         require 'login.php';
+        require 'sludinajumi.php';
         
     }
     
@@ -43,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   <div class="pogas">
       <ul class="tab-group">
           <li class="tab"><a href="#signup">Reģistrēties</a></li>
-          <li class="tab active"><a href="#login, #main">Pierakstīties</a></li>
+          <li class="tab active"><a href="#login, #sludinajumi">Pierakstīties</a></li>
       </ul>
   </div>
 </div>
@@ -83,34 +84,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
           </form>
         </div>
 
-        <!--Lapas saturs-->
-        <div id="main" class="content">
-          <h1>Braucam Kopā!</h1>
-                    <div class="profile-cover">
-                    <?php
-                      $con = mysqli_connect("localhost","root","","accounts");
-                      $q = mysqli_query($con,"SELECT * FROM users");
-
-
-                        while($row = mysqli_fetch_assoc($q)){
-                          echo '<div class="sludinajuma-info">';
-                            echo '<div class="profile-info">';
-                              if($row['image'] == ""){
-                                echo "<img width='100' height='100' src='img/profile/default.png' alt='Default Profile Pic'>";
-                              } else {
-                                echo "<img width='100' height='100' src='img/profile/".$row['image']."' alt='Profile Pic'>";
-                              }
-                              echo '<div class="name">';
-                              $name = $row['first_name'];
-                              $surname = $row['last_name'];
-                              echo "<p> $name $surname </p>"; 
-                              echo '</div>';
-                            echo '</div>';
-                          echo '</div>';
-                        }
-                      ?>
-                    </div>
-                  </div>
+  <!--Visi sludinajumi-->
+  <div id="sludinajumi" class="content">
+    <h1>Braucam Kopā!</h1>
+              <div id="sludinajumi-cover" class="sludinajumi-cover">
+             
+              </div>
+        </div>
 
           <!--Reģistrācija-->
         <div id="signup">   

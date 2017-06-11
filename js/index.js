@@ -56,7 +56,7 @@ $("#filee").on("change", function() {
     $("#formaa").submit();
 });
 
-//Nodrošina tikai ciparu ievadi
+//Nodrošina tikai ciparu un + ievadi
 function validate(evt) {
   var theEvent = evt || window.event;
   var key = theEvent.keyCode || theEvent.which;
@@ -67,3 +67,25 @@ function validate(evt) {
     if(theEvent.preventDefault) theEvent.preventDefault();
   }
 }
+
+function validate_cena(evt) {
+  var theEvent = evt || window.event;
+  var key = theEvent.keyCode || theEvent.which;
+  key = String.fromCharCode( key );
+  var regex = /[0-9]|\./;
+  if( !regex.test(key) ) {
+    theEvent.returnValue = false;
+    if(theEvent.preventDefault) theEvent.preventDefault();
+  }
+}
+
+
+$(document).ready(function(){
+  $("#sludinajumi-cover").load("sludinajumi.php");
+  $("#mani-sludinajumi-cover").load("mani-sludinajumi.php");
+});
+
+$(".sludinajuma-info").click(function() {
+  window.location = $(this).find("a").attr("href"); 
+  return false;
+});

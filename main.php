@@ -126,29 +126,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   <!--Visi sludinajumi-->
   <div id="sludinajumi" class="content">
     <h1>Braucam Kopā!</h1>
-              <div class="profile-cover">
-              <?php
-                $con = mysqli_connect("localhost","root","","accounts");
-                $q = mysqli_query($con,"SELECT * FROM users");
-
-                  while($row = mysqli_fetch_assoc($q)){
-                    echo '<div class="sludinajuma-info">';
-                      echo '<div class="profile-info">';
-                        if($row['image'] == ""){
-                          echo "<img width='100' height='100' src='img/profile/default.png' alt='Default Profile Pic'>";
-                        } else {
-                          echo "<img width='100' height='100' src='img/profile/".$row['image']."' alt='Profile Pic'>";
-                        }
-                        echo '<div class="name">';
-                        $name = $row['first_name'];
-                        $surname = $row['last_name'];
-                        echo "<p> $name $surname </p>"; 
-                        echo '</div>';
-                      echo '</div>';
-                    echo '</div>';
-                  }
-                ?>
+          <form action="main.php" method="post" autocomplete="off">
+              <div id="sludinajumi-cover" class="sludinajumi-cover">
+   
               </div>
+          </form>
         </div>
 
           <!--Pievienot pasazieri-->
@@ -231,21 +213,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
               <input type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" required autocomplete="off" name='datums' />
             </div>
             
+            <div class="top-row">
             <div class="field-wrap">
               <label>
                 Laiks<span class="req">*</span>
               </label>
               <input type="text" onfocus="(this.type='time')" onfocusout="(this.type='text')" required autocomplete="off" name='laiks'/>
             </div>
+
+              <div class="field-wrap">
+                <label>
+                  Cena<span class="req">*</span>
+                </label>
+                <input type="text" onkeypress='validate_cena(event)' required autocomplete="off" name='cena' />
+              </div>
+            </div>
           </div>
 
-          <div class="field-wrap">
-              <label class="active">
-                Vietu skaits<span class="req">*</span>
-              </label>
-              <output name="output-skaits" id="outputId">1</output>
-              <input id="inputId" type="range" required autocomplete="off" min="1" max="8" value="1" name="skaits" oninput="outputId.value = inputId.value"/>
-          </div>
+            <div class="field-wrap">
+                <label class="active">
+                  Vietu skaits<span class="req">*</span>
+                </label>
+                <output name="output-skaits" id="outputId">1</output>
+                <input id="inputId" type="range" required autocomplete="off" min="1" max="8" value="1" name="skaits" oninput="outputId.value = inputId.value"/>
+            </div>
 
           <div class="field-wrap">
               <label>
