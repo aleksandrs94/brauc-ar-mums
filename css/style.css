@@ -1,3 +1,99 @@
+/* Large Devices, Wide Screens */
+@media only screen and (min-width: 1200px) {
+  body .header {
+    height: 53px; }
+    body .header .logo {
+      height: 53px; }
+      body .header .logo a {
+        height: 53px; }
+        body .header .logo a img {
+          height: 53px; }
+    body .header .pogas-logged .tab-group li a, body .header .pogas-profile .tab-group li a, body .header .pogas-sludinajums .tab-group li a, body .header .pogas .tab-group li a {
+      padding: 15px;
+      font-size: 20px; }
+    body .header .profile-wrapper .profile {
+      height: 53px;
+      width: 40%;
+      margin-left: 5%; }
+      body .header .profile-wrapper .profile img {
+        height: 53px; }
+    body .header .profile-wrapper .log_out {
+      height: 53px; }
+      body .header .profile-wrapper .log_out a {
+        height: 53px; }
+        body .header .profile-wrapper .log_out a img {
+          height: 53px; }
+  body .sludinajumu-form, body .login-form {
+    padding-top: 53px; }
+    body .sludinajumu-form #meklet, body .login-form #meklet {
+      top: 53px; }
+    body .sludinajumu-form .tab-content #login, body .login-form .tab-content #login {
+      top: 53px; } }
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 992px) {
+  body .content {
+    max-width: 720px; }
+  body .login-form .tab-content #login {
+    padding: 22px; }
+    body .login-form .tab-content #login .credentials-wrapper .button-block {
+      font-size: 12px; }
+  body .login-form .tab-content #signup {
+    max-width: 550px; }
+  body .sludinajumu-form #pasazieris, body .sludinajumu-form #brauciens {
+    max-width: 550px; } }
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+  body .content {
+    max-width: 600px; }
+  body .form {
+    margin: 180px auto;
+    max-width: 500px; }
+  body .login-form .tab-content #login {
+    padding: 18px; }
+    body .login-form .tab-content #login .credentials-wrapper .forgot {
+      width: 9%;
+      margin-top: -10px; }
+    body .login-form .tab-content #login .credentials-wrapper .field-wrap .icon {
+      height: 34px; }
+      body .login-form .tab-content #login .credentials-wrapper .field-wrap .icon img {
+        width: 32px;
+        height: 34px; }
+    body .login-form .tab-content #login .credentials-wrapper .button-block {
+      font-size: 10px;
+      height: 34px; }
+  body .login-form .tab-content #signup {
+    max-width: 500px;
+    margin: 180px auto; }
+  body .profile-form {
+    max-width: 500px; }
+  body .sludinajumu-form #pasazieris, body .sludinajumu-form #brauciens {
+    max-width: 500px;
+    margin: 180px auto; }
+  body .sludinajumu-form #meklet {
+    padding: 27px; }
+    body .sludinajumu-form #meklet .credentials-wrapper .button-block {
+      font-size: 12px;
+      height: 34px;
+      width: 19%; }
+  body .sludinajuma-infoo {
+    max-width: 500px;
+    margin: 180px auto; }
+    body .sludinajuma-infoo .brauciena-info .name {
+      font-size: 27px; }
+    body .sludinajuma-infoo .brauciena-info .marsruts-info, body .sludinajuma-infoo .brauciena-info .datums-info, body .sludinajuma-infoo .brauciena-info .numurs-info {
+      font-size: 20pt; }
+    body .sludinajuma-infoo .brauciena-info .description-info {
+      font-size: 15pt; }
+  body input, body textarea {
+    font-size: 14px;
+    height: 34px; }
+  body label {
+    font-size: 19px; }
+  body .button-block {
+    font-size: 1.3rem; }
+  body button {
+    font-size: 1.3rem; } }
+/* Extra Small Devices, Phones */
 *, *:before, *:after {
   box-sizing: border-box; }
 
@@ -11,6 +107,22 @@ body {
   -o-background-size: cover;
   background-size: cover;
   font-family: 'Ubuntu', sans-serif; }
+
+.tt-hint,
+.tt-dropdown-menu {
+  width: 250px;
+  margin-top: 5px;
+  padding: 4px 6px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  font-size: 18px;
+  color: #111111;
+  background-color: #F1F1F1; }
+  .tt-hint .tt-dataset-city .tt-suggestions .tt-suggestion p,
+  .tt-dropdown-menu .tt-dataset-city .tt-suggestions .tt-suggestion p {
+    color: black;
+    margin: 0px 0px 20px 0px; }
 
 .form {
   background: rgba(16, 29, 52, 0.7);
@@ -120,6 +232,15 @@ a:hover {
       margin: 0; }
       .header .pogas-profile .tab-group li a {
         width: 50%; }
+  .header .pogas-sludinajums {
+    width: 80%;
+    height: 100%;
+    float: left;
+    position: relative; }
+    .header .pogas-sludinajums .tab-group {
+      margin: 0; }
+      .header .pogas-sludinajums .tab-group li a {
+        width: 100%; }
   .header .pogas-logged {
     width: 80%;
     height: 100%;
@@ -128,9 +249,12 @@ a:hover {
     .header .pogas-logged .tab-group {
       margin: 0; }
       .header .pogas-logged .tab-group li a {
-        width: 33.33%;
+        max-width: 33.33%;
         /* as @passatgt mentioned in the comment, for the older browsers fallback */
-        width: calc(100% / 3); }
+        width: 33.33%;
+        width: calc(100% / 3);
+        width: -webkit-calc 33.33333%;
+        width: -moz-calc 33.33333%; }
   .header .profile-wrapper {
     display: block;
     width: 10%;
@@ -329,17 +453,20 @@ a:hover {
             }
           } */ }
 
-#sludinajumi .sludinajuma-info {
+#mani-sludinajumi {
+  margin: 100px auto; }
+
+#sludinajumi .sludinajuma-info, #mani-sludinajumi .sludinajuma-info {
   width: 100%;
-  height: 150px;
+  height: 180px;
   padding: 15px 0 10px 0;
   margin-bottom: 30px;
   margin-top: 20px;
   box-shadow: 0 -6px 5px 11px rgba(19, 35, 47, 0.7); }
-  #sludinajumi .sludinajuma-info .profile-info {
+  #sludinajumi .sludinajuma-info .profile-info, #mani-sludinajumi .sludinajuma-info .profile-info {
     width: 20%;
     float: left; }
-    #sludinajumi .sludinajuma-info .profile-info img {
+    #sludinajumi .sludinajuma-info .profile-info img, #mani-sludinajumi .sludinajuma-info .profile-info img {
       background-repeat: no-repeat;
       background-position: center center;
       background-size: cover;
@@ -354,36 +481,37 @@ a:hover {
       bottom: 0;
       left: 0;
       right: 0; }
-    #sludinajumi .sludinajuma-info .profile-info .name {
+    #sludinajumi .sludinajuma-info .profile-info .name, #sludinajumi .sludinajuma-info .profile-info .number, #mani-sludinajumi .sludinajuma-info .profile-info .name, #mani-sludinajumi .sludinajuma-info .profile-info .number {
       text-align: center; }
-      #sludinajumi .sludinajuma-info .profile-info .name p {
+      #sludinajumi .sludinajuma-info .profile-info .name p, #sludinajumi .sludinajuma-info .profile-info .number p, #mani-sludinajumi .sludinajuma-info .profile-info .name p, #mani-sludinajumi .sludinajuma-info .profile-info .number p {
         margin: 0px; }
-  #sludinajumi .sludinajuma-info .brauciena-info {
+  #sludinajumi .sludinajuma-info .brauciena-info, #mani-sludinajumi .sludinajuma-info .brauciena-info {
     width: 80%;
     height: 130px;
     padding-top: 10px;
     float: right;
     position: relative;
     display: block; }
-    #sludinajumi .sludinajuma-info .brauciena-info .marsruts-info {
+    #sludinajumi .sludinajuma-info .brauciena-info .marsruts-info, #mani-sludinajumi .sludinajuma-info .brauciena-info .marsruts-info {
+      text-transform: uppercase;
       text-align: left;
-      font-size: 17pt;
+      font-size: 15pt;
       width: 50%;
       height: 30px;
       float: left; }
-    #sludinajumi .sludinajuma-info .brauciena-info .datums-info {
+    #sludinajumi .sludinajuma-info .brauciena-info .datums-info, #mani-sludinajumi .sludinajuma-info .brauciena-info .datums-info {
       width: 50%;
       height: 30px;
       top: 0;
       float: left;
       text-align: right; }
-    #sludinajumi .sludinajuma-info .brauciena-info .cena-info {
+    #sludinajumi .sludinajuma-info .brauciena-info .cena-info, #mani-sludinajumi .sludinajuma-info .brauciena-info .cena-info {
       text-align: left;
       font-size: 14pt;
       width: 50%;
       height: 30px;
       float: left; }
-    #sludinajumi .sludinajuma-info .brauciena-info .skaits-info {
+    #sludinajumi .sludinajuma-info .brauciena-info .skaits-info, #mani-sludinajumi .sludinajuma-info .brauciena-info .skaits-info {
       width: 30%;
       height: 30px;
       display: block;
@@ -391,19 +519,100 @@ a:hover {
       text-align: right;
       padding-top: 15px;
       font-size: 18pt; }
-    #sludinajumi .sludinajuma-info .brauciena-info .description-info {
+    #sludinajumi .sludinajuma-info .brauciena-info .description-info, #mani-sludinajumi .sludinajuma-info .brauciena-info .description-info {
       display: block;
       width: 85%;
       height: 55px;
       margin-top: 10px;
       position: relative;
       float: left;
-      text-align: left; }
-    #sludinajumi .sludinajuma-info .brauciena-info .veids-ico {
+      text-align: left;
+      overflow: hidden; }
+      #sludinajumi .sludinajuma-info .brauciena-info .description-info p, #mani-sludinajumi .sludinajuma-info .brauciena-info .description-info p {
+        text-align: left;
+        margin: 0;
+        padding-left: 2%; }
+    #sludinajumi .sludinajuma-info .brauciena-info .veids-ico, #mani-sludinajumi .sludinajuma-info .brauciena-info .veids-ico {
       width: 15%;
       height: 75px;
       float: right;
       margin-top: 10px; }
+
+.sludinajuma-infoo {
+  background: rgba(16, 29, 52, 0.7);
+  padding: 40px;
+  max-width: 600px;
+  margin: 100px auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3); }
+  .sludinajuma-infoo .profile-info {
+    position: relative;
+    margin: 0 auto;
+    display: block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; }
+    .sludinajuma-infoo .profile-info img {
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto;
+      display: block;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      object-fit: cover;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0; }
+  .sludinajuma-infoo .brauciena-info {
+    width: 100%;
+    height: auto;
+    min-height: 200px; }
+    .sludinajuma-infoo .brauciena-info .name {
+      position: relative;
+      height: 30px;
+      width: 100%;
+      margin-top: 10px; }
+    .sludinajuma-infoo .brauciena-info .numurs-info {
+      width: 100%;
+      height: 30px; }
+    .sludinajuma-infoo .brauciena-info .marsruts-info {
+      width: 100%;
+      height: 40px;
+      margin-top: 20px;
+      text-transform: uppercase;
+      font-size: 18pt; }
+    .sludinajuma-infoo .brauciena-info .datums-info {
+      width: 100%;
+      height: 30px; }
+    .sludinajuma-infoo .brauciena-info .cena-info {
+      width: 50%;
+      height: 30px;
+      float: left;
+      font-size: 17pt;
+      margin-top: 20px; }
+    .sludinajuma-infoo .brauciena-info .skaits-info {
+      width: 30%;
+      height: 30px;
+      float: right;
+      font-size: 40pt; }
+    .sludinajuma-infoo .brauciena-info .description-info {
+      width: 90%;
+      height: 130px;
+      float: left;
+      overflow: hidden;
+      margin-top: 40px; }
+      .sludinajuma-infoo .brauciena-info .description-info p {
+        text-align: left; }
+    .sludinajuma-infoo .brauciena-info .veids-ico {
+      width: 10%;
+      float: right; }
+      .sludinajuma-infoo .brauciena-info .veids-ico img {
+        float: right; }
 
 .content {
   margin: 180px auto;
@@ -469,6 +678,11 @@ h2 {
   color: #41aff4;
   font-weight: 1000;
   margin: 0; }
+
+h3 {
+  text-align: center;
+  color: #ffffff;
+  font-weight: 600; }
 
 span {
   color: #41aff4;

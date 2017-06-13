@@ -11,16 +11,11 @@ if ( $_SESSION['logged_in'] != 1 ) {
 else {
     // Padaram datus vieglāk nolasāmus
     $id = $_SESSION['id'];
-    $first_name = $_SESSION['first_name'];
-    $last_name = $_SESSION['last_name'];
+    //$first_name = $_SESSION['first_name'];
+    //$last_name = $_SESSION['last_name'];
+    //$p_number = $_SESSION['p_number'];
     $email = $_SESSION['email'];
     $active = $_SESSION['active'];
-
-    // Escape all $_POST variables to protect against SQL injections
-    //$first_name = $mysqli->escape_string($_POST['firstname']);
-    //$last_name = $mysqli->escape_string($_POST['lastname']);
-    //$p_number = $mysqli->escape_string($_POST['pnumber']);
-
 }
 ?>
 
@@ -34,8 +29,6 @@ else {
   }
 ?>
 
-
-
 <?php 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') 
 {
@@ -48,13 +41,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 }
 ?>
 
-
 <!DOCTYPE html>
 <html >
 <head>
   <meta charset="UTF-8">
   <title>Profils</title>
   <?php include 'css/css.html'; ?>
+  <meta name="viewport" content="width=device-width, initial-scale = 0.6, maximum-scale=0.6, user-scalable=no"> 
 </head>
 
 <body>
@@ -111,9 +104,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 <!--Profila info-->
   <div id="profile" class="profile-form">
           <h1>Jūsu Profils</h1>
-          <p>
-          Lūdzu ievadiet nepieciešamo informāciju!
-          </p>
 
           <p>
           <?php 
@@ -148,6 +138,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 //$q = mysqli_query($con,"SELECT * FROM profils JOIN users WHERE users.email = '".$_SESSION['email']."'");
                 $q = mysqli_query($con,"SELECT * FROM users WHERE email = '".$_SESSION['email']."'");
               while($row = mysqli_fetch_assoc($q)){
+
+                    $first_name = $row ['first_name'];
+                    $last_name = $row ['last_name'];
+                    $p_number = $row ['p_number'];
+
                 //echo $row['email'];
                 if($row['image'] == ""){
                   echo "<img width='100' height='100' src='img/profile/default.png' alt='Default Profile Pic'>";
@@ -161,37 +156,71 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
           </div>
 
           <h2><?php echo $first_name.' '.$last_name; ?></h2>
+          <h3><?= $p_number ?></h3>
           <p><?= $email ?></p>
 
-          <div class="top-row">
             <form action="" method="post" autocomplete="off">
+              <div class="top-row">
                 <div class="field-wrap">
                   <label>
                     Vārds<span class="req">*</span>
                   </label>
                   <input type="text" required autocomplete="off" name="firstname"/>
                 </div>
-            </form> 
 
-            <form action="" method="post" autocomplete="off">
+
+
                 <div class="field-wrap">
                   <label>
                     Uzvārds<span class="req">*</span>
                   </label>
                   <input type="text" required autocomplete="off" name="lastname"/>
                 </div>
-          </div>
+              </div>
 
-          <form action="" method="post" autocomplete="off">
+
               <div class="field-wrap">
                 <label>
                   Telefona Numurs<span class="req">*</span>
                 </label>
                 <input type="text" onkeypress='validate(event)' required autocomplete="off" name="pnumber"/>
               </div>
+              <a href="profile.php"><button class="button button-block" id="submitt" name="submitt"/>Apstiprināt</button></a>
           </form>
-          
-          <a href="profile.php"><button class="button button-block" name="submit"/>Apstiprināt</button></a>
+
+          <?php
+            if (isset($_POST['submitt'])) {
+
+                //$id = $_SESSION['id'];
+                //$first_name = $_SESSION['first_name'];
+                //$last_name = $_SESSION['last_name'];
+                //$email = $_SESSION['email'];
+
+                $_SESSION['first_name'] = $_POST['firstname'];
+                $_SESSION['last_name'] = $_POST['lastname'];
+                $_SESSION['p_number'] = $_POST['pnumber'];
+
+                // Escape all $_POST variables to protect against SQL injections
+                $first_name = $mysqli->escape_string($_POST['firstname']);
+                $last_name = $mysqli->escape_string($_POST['lastname']);
+                $p_number = $mysqli->escape_string($_POST['pnumber']);
+
+                $result = "UPDATE users SET first_name = '$first_name', last_name = '$last_name', p_number = '$p_number' WHERE id = '$id'";
+                $mysqli->query($result);
+
+                if ($result) {
+                    //echo "<p>Record Updated<p>";
+                    //include 'profile.php';
+                  header("location: profile.php");
+                }
+                else
+                {
+                    $_SESSION['message'] = "Atvainojiet, radās problēmas ar datu saglabāšanu!";
+                    header("location: error.php");
+                }
+            }
+          ?>
+           
           <a href="main.php"><button class="button button-block" name="atpakal"/>Atpakaļ</button></a>
 
     </div>

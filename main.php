@@ -35,11 +35,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="lv">
 <head>
   <meta charset="UTF-8">
   <title>Galvenā</title>
   <?php include 'css/css.html'; ?>
+  <meta name="viewport" content="width=device-width, initial-scale = 0.6, maximum-scale=0.6, user-scalable=no"> 
 </head>
 
 
@@ -108,14 +109,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             <label>
               No
             </label>
-            <input type="text" autocomplete="off" name="sakums"/>
+            <input type="text" autocomplete="off" class="city" name="city"/>
           </div>
                 
           <div class="field-wrap">
             <label>
               Uz
             </label>
-            <input type="text" autocomplete="off" name="beigas"/>
+            <input type="text" autocomplete="off" class="city" name="city"/>
           </div>
                 
           <button class="button button-block" name="search" />Meklēt</button>
@@ -255,6 +256,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
     <script src="js/index.js"></script>
+    <script src="//netsh.pp.ua/upwork-demo/1/js/typeahead.js"></script>
+
 
 </body>
 </html>

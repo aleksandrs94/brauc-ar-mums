@@ -49,6 +49,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' )
 <head>
   <title>Paroles Atjaunošana</title>
   <?php include 'css/css.html'; ?>
+  <meta name="viewport" content="width=device-width, initial-scale = 0.6, maximum-scale=0.6, user-scalable=no"> 
 </head>
 
 <body>
