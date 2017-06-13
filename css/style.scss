@@ -2,6 +2,190 @@ $primary-color: #41aff4;
 $hover-color: #4277f4;
 $background-color: #525c7a;
 
+/* Large Devices, Wide Screens */
+    @media only screen and (min-width : 1200px) {
+      body {
+      .header {
+        height: 53px;
+        .logo {
+          height: 53px;
+          a{
+            height: 53px;
+            img {
+              height: 53px;
+            }
+          }
+        }
+        .pogas-logged, .pogas-profile, .pogas-sludinajums, .pogas {
+          .tab-group li a {
+            padding: 15px;
+            font-size: 20px;
+          }
+        }
+        .profile-wrapper {
+          .profile {
+            height: 53px;
+            width: 40%;
+            margin-left: 5%;
+            img {
+              height: 53px;
+            }
+          }
+          .log_out {
+            height: 53px;
+            a {
+              height: 53px;
+              img {
+                height: 53px;
+              }
+            }
+          }
+        }
+      }
+      .sludinajumu-form, .login-form {
+        padding-top: 53px;
+        #meklet {
+          top: 53px;
+        }
+        .tab-content {
+          #login {
+            top: 53px;
+          }
+        }
+      }
+    }
+  }
+
+/* Medium Devices, Desktops */
+    @media only screen and (max-width : 992px) {
+      body {
+        .content {
+          max-width: 720px;
+        }
+
+        .login-form .tab-content {
+          #login {
+            padding: 22px;
+            .credentials-wrapper {
+              .button-block {
+                font-size: 12px;
+              }
+            }
+          }
+          #signup {
+            max-width: 550px;
+          }
+        }
+
+        .sludinajumu-form {
+          #pasazieris, #brauciens {
+            max-width: 550px;
+          }
+        }
+      }
+    }
+
+/* Small Devices, Tablets */
+    @media only screen and (max-width : 768px) {
+      body {
+        .content {
+          max-width: 600px;
+        }
+
+        .form {
+          margin: 180px auto;
+          max-width: 500px;
+        }
+
+        .login-form .tab-content {
+          #login {
+            padding: 18px;
+            .credentials-wrapper {
+              .forgot {
+                width: 9%;
+                margin-top: -10px;
+              }
+              .field-wrap {
+                .icon {
+                  height: 34px;
+                  img {
+                    width: 32px;
+                    height: 34px;
+                  }
+                }
+              }
+              .button-block {
+                font-size: 10px;
+                height: 34px;
+              }
+            }
+          }
+          #signup {
+            max-width: 500px;
+            margin: 180px auto;
+          }
+        }
+
+        .profile-form {
+          max-width: 500px;
+        }
+
+        .sludinajumu-form {
+          #pasazieris, #brauciens {
+            max-width: 500px;
+            margin: 180px auto;
+          }
+          #meklet {
+            padding: 27px;
+            .credentials-wrapper {
+              .button-block {
+                font-size: 12px;
+                height: 34px;
+                width: 19%;
+              }
+            }
+          }
+        }
+
+        .sludinajuma-infoo {
+          max-width: 500px;
+          margin: 180px auto;
+          .brauciena-info {
+            .name {
+              font-size: 27px;
+            }
+            .marsruts-info, .datums-info, .numurs-info {
+              font-size: 20pt;
+            }
+            .description-info {
+              font-size: 15pt;
+            }
+          }
+        }
+
+        input, textarea {
+          font-size: 14px;
+          height: 34px;
+        }
+        label {
+          font-size: 19px;
+        }
+
+        .button-block {
+          font-size: 1.3rem;
+        }
+        button {
+          font-size: 1.3rem;
+        }
+
+      }
+    }
+
+/* Extra Small Devices, Phones */ 
+    @media only screen and (max-width : 480px) {
+
+    }
+
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -18,6 +202,41 @@ body {
   background-size: cover;
   font-family: 'Ubuntu', sans-serif;
 }
+
+.tt-hint,
+/*         .city {
+            border: 2px solid #CCCCCC;
+            border-radius: 8px 8px 8px 8px;
+            font-size: 24px;
+            height: 45px;
+            line-height: 30px;
+            outline: medium none;
+            padding: 8px 12px;
+            width: 250px;
+        }
+ */
+        .tt-dropdown-menu {
+            width: 250px;
+            margin-top: 5px;
+            padding: 4px 6px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            //border-radius: 8px 8px 8px 8px;
+            font-size: 18px;
+            color: #111111;
+            background-color: #F1F1F1;
+            .tt-dataset-city {
+              .tt-suggestions {
+                .tt-suggestion{
+                  p {
+                    color: black;
+                    margin: 0px 0px 20px 0px;
+                  }
+                }
+              }
+            }
+        }
 
 .form {
   background: rgba(16, 29, 52, 0.7);
@@ -146,6 +365,20 @@ a:hover {
       }
     }
   }
+
+  .pogas-sludinajums {
+    width: 80%;
+    height: 100%;
+    float: left;
+    position: relative;
+    .tab-group {
+      margin: 0;
+      li a {
+        width: 100%;
+      }
+    }
+  }
+
   .pogas-logged {
     width: 80%;
     height: 100%;
@@ -154,8 +387,11 @@ a:hover {
     .tab-group {
       margin: 0;
       li a {
-        width: 33.33%; /* as @passatgt mentioned in the comment, for the older browsers fallback */
+        max-width: 33.33%; /* as @passatgt mentioned in the comment, for the older browsers fallback */
+        width: 33.33%;
         width: calc(100% / 3);
+        width: -webkit-calc (100% / 3);
+        width: -moz-calc (100% / 3);
       } 
     }
   }
@@ -400,10 +636,14 @@ label.active .req {
   }
 }
 
-#sludinajumi {
+#mani-sludinajumi {
+  margin: 100px auto;
+}
+
+#sludinajumi, #mani-sludinajumi {
       .sludinajuma-info {
         width: 100%;
-        height: 150px;
+        height: 180px;
         padding: 15px 0 10px 0;
         margin-bottom: 30px;
         margin-top: 20px;
@@ -427,7 +667,7 @@ label.active .req {
           left: 0;
           right: 0;
         }
-        .name {
+        .name, .number {
           text-align: center;
           p{
             margin: 0px;
@@ -442,8 +682,9 @@ label.active .req {
         position: relative;
         display: block;
         .marsruts-info {
+          text-transform: uppercase;
           text-align: left;
-          font-size: 17pt;
+          font-size: 15pt;
           width: 50%;
           height: 30px;
           float: left;
@@ -479,6 +720,12 @@ label.active .req {
           position: relative;
           float: left;
           text-align: left;
+          overflow: hidden;
+          p {
+            text-align: left;
+            margin: 0;
+            padding-left: 2%;
+          }
         }
         .veids-ico {
           width: 15%;
@@ -488,6 +735,96 @@ label.active .req {
         }
       }
     }
+}
+
+.sludinajuma-infoo {
+  background: rgba(16, 29, 52, 0.7);
+  padding: 40px;
+  max-width: 600px;
+  margin: 100px auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+  .profile-info {
+    position: relative;
+    margin: 0 auto;
+    display: block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    img {
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto;
+      display: block;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      object-fit: cover;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+  .brauciena-info {
+    width: 100%;
+    height: auto;
+    min-height: 200px;
+    .name {
+      position: relative;
+      height: 30px;
+      width: 100%;
+      margin-top: 10px;
+    }
+    .numurs-info {
+      width: 100%;
+      height: 30px;
+    }
+    .marsruts-info {
+      width: 100%;
+      height: 40px;
+      margin-top: 20px;
+      text-transform: uppercase;
+      font-size: 18pt;
+    }
+    .datums-info {
+      width: 100%;
+      height: 30px;
+    }
+    .cena-info {
+      width: 50%;
+      height: 30px;
+      float: left;
+      font-size: 17pt;
+      margin-top: 20px;
+    }
+    .skaits-info {
+      width: 30%;
+      height: 30px;
+      float: right;
+      font-size: 40pt;
+    }
+    .description-info {
+      width: 90%;
+      height: 130px;
+      float: left;
+      overflow: hidden;
+      margin-top: 40px;
+      p {
+        text-align: left;
+      }
+    }
+    .veids-ico {
+      width: 10%;
+      float: right;
+      img {
+        float: right;
+      }
+    }
+  }
 }
 
 
@@ -565,6 +902,12 @@ h2 {
     color: $primary-color;
     font-weight: 1000;
     margin: 0;
+}
+
+h3{
+    text-align: center;
+    color: #ffffff;
+    font-weight: 600;
 }
 
 span {

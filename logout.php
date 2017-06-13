@@ -20,6 +20,7 @@ if(isset($_SERVER['HTTP_REFERER'])) {
   <meta charset="UTF-8">
   <title>Error</title>
   <?php include 'css/css.html'; ?>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 </head>
 <body>
     <div class="form">

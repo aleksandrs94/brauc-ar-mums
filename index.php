@@ -8,10 +8,11 @@ session_start();
 <head>
   <title>Sākums</title>
   <?php include 'css/css.html'; ?>
-
+  <meta name="viewport" content="width=device-width, initial-scale = 0.6, maximum-scale=0.6, user-scalable=no"> 
 </head>
 
 <?php 
+$_SESSION['logged_in'] = false;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') 
 {
     if (isset($_POST['login'])) { //lietotāja pierakstīšanās
@@ -61,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                   <img src="img/user_ico.png" width='40' height='40' alt="User icon" />
                 </div>
                 <label>
-                  E-pasta Adrese<span class="req">*</span>
+                  E-pasts<span class="req">*</span>
                 </label>
                 <input type="email" required autocomplete="off" name="email"/>
               </div>

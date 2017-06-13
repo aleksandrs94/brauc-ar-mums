@@ -20,6 +20,10 @@
                           $surname = $row['last_name'];
                           echo "<p> $name $surname </p>"; 
                           echo '</div>';
+                          echo '<div class="number">';
+                            $number = $row['p_number'];
+                            echo "<p> $number </p>";
+                          echo '</div>';
                         echo '</div>';
                         //Brauciena info
                         echo '<div class="brauciena-info">';
@@ -28,11 +32,12 @@
                             $beigas = $row['beigas'];
                             echo "<p>$sakums - $beigas</p>";
                           echo '</div>';
-                          //pagaidu mainīgais, lai zinātu sludinājumu id
+                          
+/*                          //pagaidu mainīgais, lai zinātu sludinājumu id
                           echo '<div class="id-info">';
                             $id = $row['id'];
                             echo "<p>$id</p>";
-                          echo '</div>';
+                          echo '</div>';*/
 
                           echo '<div class="datums-info">';
                             $datums = $row['datums'];
@@ -70,6 +75,10 @@
                           $name = $row['first_name'];
                           $surname = $row['last_name'];
                           echo "<p> $name $surname </p>"; 
+                          echo '</div>';
+                          echo '<div class="number">';
+                            $number = $row['p_number'];
+                            echo "<p> $number </p>";
                           echo '</div>';
                         echo '</div>';
                         //Brauciena info

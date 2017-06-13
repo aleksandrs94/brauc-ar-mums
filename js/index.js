@@ -68,6 +68,7 @@ function validate(evt) {
   }
 }
 
+//Nodrošina ciparu un . ievadi
 function validate_cena(evt) {
   var theEvent = evt || window.event;
   var key = theEvent.keyCode || theEvent.which;
@@ -79,7 +80,7 @@ function validate_cena(evt) {
   }
 }
 
-
+//Ielādē konkrēto sludinājumu
 $(document).ready(function(){
   $("#sludinajumi-cover").load("sludinajumi.php");
   $("#mani-sludinajumi-cover").load("mani-sludinajumi.php");
@@ -89,3 +90,11 @@ $(".sludinajuma-info").click(function() {
   window.location = $(this).find("a").attr("href"); 
   return false;
 });
+
+        $(document).ready(function() {
+
+            $('input.city').typeahead({
+                name: 'city',
+                remote: 'city.php?query=%QUERY'
+            });
+        })
